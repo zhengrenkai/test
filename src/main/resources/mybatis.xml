@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--    数据库配置文件-->
+    <properties resource="jdbc.properties"/>
+    <!--    映射文件resultType使用
+        com.baidu.domain 包名下都可以使用 类名
+    -->
+    <typeAliases>
+        <package name="com.baidu.settings.domain"/>
+    </typeAliases>
+    <!-- 日志 -->
+    <!--    <settings>-->
+    <!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+    <!--    </settings>-->
+    <!--环境配置 数据库的连接信息 default 指定id的数据库-->
+    <environments default="sql">
+        <!--一个数据库的信息配置 id:唯一值 环境的名称-->
+        <environment id="sql">
+            <!-- type myBatis的事物类型-->
+            <transactionManager type="JDBC"/>
+            <!--type 数据源的类型-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${mysql.driver}"/>
+                <property name="url" value="${mysql.url}"/>
+                <property name="username" value="${mysql.username}"/>
+                <property name="password" value="${mysql.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- mappers:sql映射文件xml的位置
+        mapper:指定一个文件的位置 类路径开始的路径 classpath
+    -->
+    <mappers>
+        <package name="com.baidu.settings.dao"/>
+    </mappers>
+</configuration>
