@@ -20,7 +20,7 @@ public class UserController extends HttpServlet {
         if("/settings/user/xx.do".equals(servlicePath)){
             System.out.println("操作");
         }else if("/settings/user/xx1.do".equals(servlicePath)){
-            System.out.println("操作2");
+            System.out.println("操作3");
         }
     }
 }
